@@ -1,0 +1,170 @@
+package poo;
+
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+import javax.swing.JOptionPane;
+import javax.xml.crypto.Data;
+
+public class Uso_Empleado {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		/*Empleado empleado1=new Empleado("Derlevin Bedoya", 85000, 2019, 03, 12);
+		Empleado empleado2=new Empleado("Andres Gaviria", 95000, 2018, 06, 16);
+		Empleado empleado3=new Empleado("Gloria ramirez", 105000, 2019, 05, 01);
+		
+		empleado1.subeSueldo(5);
+		empleado2.subeSueldo(5);
+		empleado3.subeSueldo(5);
+		
+		System.out.println("Nombre: " + empleado1.dameNombre() + "\nSueldo: " + empleado1.dameSuledo() 
+				+ "\nFecha de alta: " + empleado1.dameFechaContrato());
+		
+		System.out.println("Nombre: " + empleado2.dameNombre() + "\nSueldo: " + empleado2.dameSuledo() 
+				+ "\nFecha de alta: " + empleado2.dameFechaContrato());
+		
+		System.out.println("Nombre: " + empleado3.dameNombre() + "\nSueldo: " + empleado3.dameSuledo() 
+				+ "\nFecha de alta: " + empleado3.dameFechaContrato());*/
+		
+		Jefatura jefe_RRHH = new Jefatura("Derle", 5000, 2019, 03, 16);
+		jefe_RRHH.estableceIncentivo(700);
+		
+		Empleado misEmpleados[] = new Empleado[6];
+		
+		/*for(int i=0; i<misEmpleados.length; i++){
+			
+			String nombreEmpleado= JOptionPane.showInputDialog("Ingresar el nombre del empleado: ");
+			int sueldoEmpleado= Integer.parseInt(JOptionPane.showInputDialog("Ingresar el sueldo del empleado: "));
+			int agnoEmpleado= Integer.parseInt(JOptionPane.showInputDialog("Año de alta: "));
+			int mesEmpleado= Integer.parseInt(JOptionPane.showInputDialog("Mes de alta: "));
+			int diaEmpleado= Integer.parseInt(JOptionPane.showInputDialog("Dia de alta: "));
+			misEmpleados[i] = new Empleado(nombreEmpleado, sueldoEmpleado, agnoEmpleado, mesEmpleado, diaEmpleado);
+			System.out.println("Nombre del empleado numero " + (i+1) + " es: "  + misEmpleados[i].dameNombre() + 
+					" Sueldo: " + misEmpleados[i].dameSueldo() + " Fecha de alta: " + 
+					misEmpleados[i].dameFechaContrato());
+		}*/
+		
+		misEmpleados[0]=new Empleado("Ana", 30000, 2000, 07, 07);
+		misEmpleados[1]=new Empleado("Carlos", 30000, 2000, 07, 07);
+		misEmpleados[2]=new Empleado("Pedro", 20000, 3000, 07, 07);
+		misEmpleados[3]=new Empleado("Antonio", 10000, 1000, 07, 07);
+		misEmpleados[4]=jefe_RRHH;
+		misEmpleados[5]=new Jefatura("Maria", 5000, 2016, 03, 03);
+		
+		Jefatura jefe_finanzas = (Jefatura) misEmpleados[5];
+		jefe_finanzas.estableceIncentivo(700);
+		
+		
+		
+		
+		for (Empleado e: misEmpleados){ // FOR MEJORADO
+			
+			e.subeSueldo(5);
+		}
+		
+		for (Empleado e:misEmpleados){
+			
+			System.out.println("Nombre: " + e.dameNombre() + " Sueldo: " + e.dameSueldo() + 
+					" Fecha de alta: " + e.dameFechaContrato());
+			
+		}
+		
+
+	}
+
+}
+
+class Empleado{
+	
+	private String nombre;
+	private double sueldo;
+	private Date altaContrato;
+	private int id;
+	private static int idSiguiente=1; //INDICA QUE ES LA VARIABLE DE LA CLASE 
+	
+	public Empleado(String nom, double sue, int agno, int mes, int dia){
+		
+		nombre=nom;
+		sueldo=sue;
+		GregorianCalendar calendario=new GregorianCalendar(agno, mes-1, dia);
+		altaContrato=calendario.getTime();
+		id=idSiguiente;
+		idSiguiente++;
+		
+		
+		
+	}
+	
+	public Empleado(String nom){// SOBRE CARGA DE CONSTRUCTOR CON EL THIS GENERA UN PARAMETRO DEL OTRO CONSTRUCTOR
+	
+		
+		this(nom,500,2019,02,02);
+		
+	}
+	
+	public String dameNombre(){//GETTER
+		
+		return nombre + " id: " + id;
+		
+	}
+	public double dameSueldo(){//GETTER
+		
+		return sueldo;
+		
+	}
+	
+	public Date dameFechaContrato(){//GETTER
+		
+		return altaContrato;
+		
+	}
+	
+	public void subeSueldo(double porcentaje){
+		
+		double aumento=sueldo*porcentaje/100;
+		
+		sueldo+=aumento;
+		
+	}
+	
+}
+
+
+class Jefatura extends Empleado{
+	
+	private double incentivo;
+	
+	
+	public Jefatura(String nom, double sue, int agno, int mes, int dia){
+		
+		//COMO YA TENIAMOS ESTOS PARAMETROS EN LA CLASE EMPLEADOS NO ES NECESARIO 
+		//CREARLOS, EN CASO DE QUE USEMOS UNO NUEVO SI HAY QUE DECLARARLO.
+		
+		super(nom, sue, agno, mes, dia);// ENVIA LOS PARAMATROS AL CONSTRUCTOR EMPLEADO
+		
+		
+	}
+	
+	public void estableceIncentivo(double b){
+		
+		incentivo=b;
+		
+	}
+	
+	public double dameSueldo(){
+		
+		double sueldoJefe=super.dameSueldo();
+		
+		return sueldoJefe+incentivo;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+}

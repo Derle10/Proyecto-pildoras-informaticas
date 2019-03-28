@@ -1,0 +1,65 @@
+package poo;
+
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+import javax.xml.crypto.Data;
+
+public class Uso_Empleado {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Empleado empleado1=new Empleado("Derlevin Bedoya", 85000, 2019, 03, 12);
+		Empleado empleado2=new Empleado("Andres Gaviria", 95000, 2018, 06, 16);
+		Empleado empleado3=new Empleado("Gloria ramirez", 105000, 2019, 05, 01);
+
+	}
+
+}
+
+class Empleado{
+	
+	private String nombre;
+	private double sueldo;
+	private Date altaContrato;
+	
+	public Empleado(String nom, double sue, int agno, int mes, int dia){
+		
+		nombre=nom;
+		sueldo=sue;
+		GregorianCalendar calendario=new GregorianCalendar(agno, mes-1, dia);
+		altaContrato=calendario.getTime();
+		
+		
+	}
+	
+	public String dameNombre(){//GETTER
+		
+		return nombre;
+		
+	}
+	public double dameSuledo(){//GETTER
+		
+		return sueldo;
+		
+	}
+	
+	public Date dameFechaContrato(){//GETTER
+		
+		return altaContrato;
+		
+	}
+	
+	public void subeSueldo(double porcentaje){
+		
+		double aumento=sueldo*porcentaje/100;
+		
+		sueldo+=aumento;
+		
+	}
+	
+
+	
+	
+}

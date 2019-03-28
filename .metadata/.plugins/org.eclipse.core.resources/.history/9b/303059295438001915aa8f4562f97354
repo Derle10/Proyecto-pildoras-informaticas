@@ -1,0 +1,34 @@
+
+public class Array_2d {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		double acomulado;
+		double interes = 0.10;
+		
+		double matrix[][] = new double[6][5];
+		
+		for (int f=0; f<6; f++){
+			
+			matrix[f][0] = 10000;
+			acomulado=10000;
+			System.out.println();
+			
+			for (int c=1; c<5; c++){
+				acomulado = acomulado+(acomulado*interes);
+				matrix[f][c] = acomulado;
+				System.out.printf("%1.2f", matrix[f-1][c]);
+				System.out.print(" ");
+				
+			}
+			
+			interes = interes + 0.01;		
+			
+		}
+		
+		
+
+	}
+
+}

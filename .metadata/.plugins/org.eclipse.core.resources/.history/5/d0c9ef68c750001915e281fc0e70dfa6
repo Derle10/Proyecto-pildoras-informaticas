@@ -1,0 +1,64 @@
+package graficos;
+
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Line2D;
+import java.awt.geom.Rectangle2D;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class PruebaImagenes {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		MarcoConImagen mimarco= new MarcoConImagen();
+		
+		mimarco.setVisible(true);
+		
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+
+class MarcoConImagen extends JFrame{
+	
+	public MarcoConImagen(){
+		
+		setTitle("Marco con imagen");
+		
+		setBounds(750, 300, 300, 200);
+		
+		LaminaConImagen milamina=new LaminaConImagen();
+		
+		add(milamina);
+	}
+	
+}
+
+
+class LaminaConImagen extends JPanel{
+	
+	public void paintComponent(Graphics g){
+		
+		super.paintComponent(g);// Dibujar el espejo para pintar en la interface
+		
+		//g.drawRect(50, 50, 200, 200);
+		//g.drawLine(100, 100, 200, 300);
+		//g.drawArc(50, 100, 100, 200, 120,150 );
+		
+		Graphics2D g2=(Graphics2D) g;
+		
+		Rectangle2D rectangulo=new Rectangle2D.Double(100,100,200,150);
+		
+		
+		
+		
+		
+	}
+	
+	
+}

@@ -1,0 +1,23 @@
+
+public class Uso_for_each {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String paises[] = { "ESPAÑA" , "COLOMBIA" , "CHILE" , "ARGENTINA" , "MEXICO" , "ECUADOR" , "VENEZUELA" };
+		
+		for (int i = 0 ; i < paises.length ; i++){
+		
+		System.out.println(" País " + (i+1) + " " + paises[i]);
+		
+		}
+		
+		for(String elemento:paises){
+			
+			System.out.println(elemento);
+			
+		}
+
+	}
+
+}

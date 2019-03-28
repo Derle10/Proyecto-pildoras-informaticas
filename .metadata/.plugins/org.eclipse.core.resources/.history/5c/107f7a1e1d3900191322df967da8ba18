@@ -1,0 +1,94 @@
+package poo;
+
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+import javax.swing.JOptionPane;
+import javax.xml.crypto.Data;
+
+public class Uso_Empleado {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		/*Empleado empleado1=new Empleado("Derlevin Bedoya", 85000, 2019, 03, 12);
+		Empleado empleado2=new Empleado("Andres Gaviria", 95000, 2018, 06, 16);
+		Empleado empleado3=new Empleado("Gloria ramirez", 105000, 2019, 05, 01);
+		
+		empleado1.subeSueldo(5);
+		empleado2.subeSueldo(5);
+		empleado3.subeSueldo(5);
+		
+		System.out.println("Nombre: " + empleado1.dameNombre() + "\nSueldo: " + empleado1.dameSuledo() 
+				+ "\nFecha de alta: " + empleado1.dameFechaContrato());
+		
+		System.out.println("Nombre: " + empleado2.dameNombre() + "\nSueldo: " + empleado2.dameSuledo() 
+				+ "\nFecha de alta: " + empleado2.dameFechaContrato());
+		
+		System.out.println("Nombre: " + empleado3.dameNombre() + "\nSueldo: " + empleado3.dameSuledo() 
+				+ "\nFecha de alta: " + empleado3.dameFechaContrato());*/
+		
+		Empleado misEmpleados[] = new Empleado[3];
+		
+		for(int i=0; i<misEmpleados.length; i++){
+			
+			String nombreEmpleado= JOptionPane.showInputDialog("Ingresar el nombre del empleado: ");
+			int sueldoEmpleado= Integer.parseInt(JOptionPane.showInputDialog("Ingresar el sueldo del empleado: "));
+			int agnoEmpleado= Integer.parseInt(JOptionPane.showInputDialog("Año de alta: "));
+			int mesEmpleado= Integer.parseInt(JOptionPane.showInputDialog("Mes de alta: "));
+			int diaEmpleado= Integer.parseInt(JOptionPane.showInputDialog("Dia de alta: "));
+			misEmpleados[i] = new Empleado(nombreEmpleado, sueldoEmpleado, agnoEmpleado, mesEmpleado, diaEmpleado);
+			System.out.println("Nombre del empleado numero " + (i+1) + " es: "  + misEmpleados[i].dameNombre() + 
+					" Sueldo: " + misEmpleados[i].dameSuledo() + " Fecha de alta: " + 
+					misEmpleados[i].dameFechaContrato());
+		}
+
+	}
+
+}
+
+class Empleado{
+	
+	private String nombre;
+	private double sueldo;
+	private Date altaContrato;
+	
+	public Empleado(String nom, double sue, int agno, int mes, int dia){
+		
+		nombre=nom;
+		sueldo=sue;
+		GregorianCalendar calendario=new GregorianCalendar(agno, mes-1, dia);
+		altaContrato=calendario.getTime();
+		
+		
+	}
+	
+	public String dameNombre(){//GETTER
+		
+		return nombre;
+		
+	}
+	public double dameSuledo(){//GETTER
+		
+		return sueldo;
+		
+	}
+	
+	public Date dameFechaContrato(){//GETTER
+		
+		return altaContrato;
+		
+	}
+	
+	public void subeSueldo(double porcentaje){
+		
+		double aumento=sueldo*porcentaje/100;
+		
+		sueldo+=aumento;
+		
+	}
+	
+
+	
+	
+}

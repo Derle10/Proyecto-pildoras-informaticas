@@ -1,0 +1,76 @@
+package poo;
+
+public class Pruebas {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Empleados trabajador1 = new Empleados("Paco");	
+		Empleados trabajador2 = new Empleados("Ana");
+		Empleados trabajador3 = new Empleados("Jorge");	
+		Empleados trabajador4 = new Empleados("Jaime");
+		trabajador1.cambiaSeccion("RRHH");
+		//trabajador1.cambiarNombre("jose");
+		System.out.println(trabajador1.devuelveDatos());
+		System.out.println(trabajador2.devuelveDatos());
+		System.out.println(trabajador3.devuelveDatos());
+		System.out.println(trabajador4.devuelveDatos());
+		
+		System.out.println(Empleados.dameIdsiguiente());
+		System.out.println(Empleados.dameIdsiguiente());
+
+	}
+	
+}
+	
+	
+	
+class Empleados{
+	
+	private final String nombre; // INDICA QUE NO PUDO CAMBIAR EL NOMBRE FUERA DEL CONSTRUCTOR
+	private String seccion;
+	private int id;
+	private static int idSiguiente=1; //INDICA QUE ES LA VARIABLE DE LA CLASE 
+	
+	
+	public Empleados(String nom){
+		
+		nombre=nom;
+		seccion="Administracion";
+		id=idSiguiente;
+		idSiguiente++;
+		
+	}
+	
+	public void cambiaSeccion(String seccion){
+		
+		this.seccion=seccion;
+		
+	}
+	
+	public String devuelveDatos(){
+		
+		return "El nombre es : " + nombre + " y la seccion es " + seccion + " y el id= " + id;
+		
+		
+	}
+	
+	public static String dameIdsiguiente(){
+		
+		return "El idSiguiente es: " + idSiguiente;
+		
+		
+		
+	}
+	
+	/*public void cambiarNombre(String nombre){
+		
+		this.nombre=nombre;		
+		
+	}*/
+	
+	
+	
+}
+
+

@@ -1,0 +1,41 @@
+import javax.swing.JOptionPane;
+
+
+public class Arreglos_bidi {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int F = Integer.parseInt(JOptionPane.showInputDialog("DIGITE EL NUMERO DE FILAS"));
+		int C = Integer.parseInt(JOptionPane.showInputDialog("DIGITE EL NUMERO DE COLUMNAS"));
+		
+		
+		int matrix[][] = new int [F][C];
+		
+		for(int f = 0; f < matrix.length; f++){
+			
+			System.out.println();
+			
+			for(int c = 0; c < matrix.length; c++){
+				
+				matrix[f][c] = (int)Math.round(Math.random()*100);
+				System.out.print(matrix[f][c] + " ");
+				
+			}
+			
+			
+		}
+		
+		for (int[] fila:matrix){
+			System.out.println();
+			for(int z : fila){
+				System.out.print(z + " ");
+			}
+			
+		}
+		
+		
+
+	}
+
+}

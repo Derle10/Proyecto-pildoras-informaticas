@@ -1,0 +1,36 @@
+package poo;
+
+
+public class Uso_Vehiculo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		/*Coche Renault = new Coche(); // INSTANCIAR UNA CLASE. EJEMPLAR DE CLASE.
+		System.out.println(Renault.dame_datos_generales());
+		Renault.establece_color(JOptionPane.showInputDialog("Introduce color"));
+		System.out.println(Renault.dime_color());
+		Renault.configura_asientos(JOptionPane.showInputDialog("¿Tiene asientos de cuero?"));
+		System.out.println(Renault.dime_asientos());
+		Renault.configura_climatizador(JOptionPane.showInputDialog("¿Tiene asientos de climatizador?"));
+		System.out.println(Renault.dime_peso_coche());
+		System.out.println(Renault.dime_climatizador());
+		System.out.println("El precio total del coche es :" + Renault.precio_coche());*/
+		
+		Coche Renaul1=new Coche();
+		Renaul1.establece_color("Negro");
+		Furgoneta furgo1=new Furgoneta(7, 580);
+		furgo1.establece_color("Dorado");
+		furgo1.configura_asientos("Si");
+		furgo1.configura_climatizador("Si");
+		
+		System.out.println(Renaul1.dame_datos_generales());
+		
+		
+		
+		
+		
+
+	}
+
+}

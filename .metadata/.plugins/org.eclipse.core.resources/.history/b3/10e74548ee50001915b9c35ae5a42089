@@ -1,0 +1,46 @@
+package graficos;
+
+import java.awt.Graphics;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class PruevaEventos {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		MarcoBotones mimarco= new MarcoBotones();
+		
+		mimarco.setVisible(true);
+		
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}
+
+class MarcoBotones extends JFrame{
+	
+	public MarcoBotones(){
+		
+		setTitle("Marco con imagen");
+		
+		setBounds(750, 300, 300, 200);
+		
+		LaminaConImagen milamina=new LaminaConImagen();
+		
+		add(milamina);
+	}
+	
+}
+
+class LaminaBotones extends JPanel{
+	
+	private Image imagen;
+	
+	}

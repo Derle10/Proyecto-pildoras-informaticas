@@ -1,0 +1,24 @@
+package poo;
+
+import javax.swing.JOptionPane;
+
+public class Uso_Coche {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Coche Renault = new Coche(); // INSTANCIAR UNA CLASE. EJEMPLAR DE CLASE.
+		System.out.println(Renault.dame_datos_generales());
+		Renault.establece_color(JOptionPane.showInputDialog("Introduce color"));
+		System.out.println(Renault.dime_color());
+		Renault.configura_asientso(JOptionPane.showInputDialog("¿Tiene asientos de cuero?"));
+		System.out.println(Renault.dime_asientos());
+		Renault.configura_climatizador(JOptionPane.showInputDialog("¿Tiene asientos de cuero?"));
+		System.out.println(Renault.dime_peso_coche());
+		System.out.println(Renault.dime_climatizador());
+		System.out.println(Renault.precio_coche());
+		
+
+	}
+
+}
